@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ngenuity - Gift Card</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: #0b0c10; /* Deep black pitch */
+            color: #e3e4e6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 30px 20px;
+        }
+
+        .page-wrapper {
+            max-width: 650px;
+            width: 100%;
+        }
+
+        .container {
+            background: linear-gradient(145deg, #12131a, #1a1c24);
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7), 0 0 15px rgba(229, 9, 20, 0.1);
+            overflow: hidden;
+            padding: 40px;
+            border: 1px solid #2a2d3a;
+        }
+
+        /* N Logo Header */
+        .brand-header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .n-symbol {
+            width: 70px;
+            height: 70px;
+            background-color: #e50914; /* Crimson Red */
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 0 20px rgba(229, 9, 20, 0.4);
+            margin-bottom: 12px;
+        }
+
+        /* SVG Reconstruction of the N logo provided */
+        .n-symbol svg {
+            width: 42px;
+            height: 42px;
+            fill: none;
+            stroke: #ffffff;
+            stroke-width: 4;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .brand-name {
+            font-size: 1.8rem;
+            font-weight: 800;
+            letter-spacing: 3px;
+            color: #ffffff;
+            text-transform: uppercase;
+        }
+
+        .brand-name span {
+            color: #e50914;
+        }
+
+        /* Notice Banner */
+        .demo-badge {
+            background-color: rgba(229, 9, 20, 0.15);
+            border: 1px solid #e50914;
+            color: #ff4d56;
+            padding: 10px 15px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        /* 1. PLACEHOLDER FOR YOUR GIFT CARD IMAGE */
+        /* Make sure your downloaded card image is named 'giftcard.jpg' (or .png) in the same directory */
+        .gift-card-img {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+            border: 1px solid #3a3f50;
+        }
+
+        h2 {
+            font-size: 1.6rem;
+            color: #ffffff;
+            margin-bottom: 15px;
+        }
+
+        /* Text Content Formatting */
+        .content-section {
+            text-align: left;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #b3b4b9;
+            margin-bottom: 25px;
+        }
+
+        .content-section p {
+            margin-bottom: 15px;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            background: #0b0c10;
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid #222530;
+            margin-bottom: 30px;
+            text-align: left;
+        }
+
+        .info-item span {
+            display: block;
+            font-size: 0.8rem;
+            color: #727682;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .info-item strong {
+            font-size: 1rem;
+            color: #ffffff;
+        }
+
+        .info-item strong.highlight {
+            color: #e50914;
+        }
+
+        /* 3. BIG BOLD PROMO CODE */
+        .promo-code-container {
+            margin: 35px 0;
+        }
+
+        .code-label {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #727682;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .promo-code {
+            font-size: 2.8rem;
+            font-weight: 900;
+            letter-spacing: 4px;
+            color: #ffffff;
+            background: #000000;
+            padding: 15px 30px;
+            border-radius: 10px;
+            display: inline-block;
+            border: 2px dashed #e50914;
+            text-shadow: 0 0 10px rgba(229, 9, 20, 0.3);
+        }
+
+        /* 4. REDEEM BUTTON */
+        .redeem-btn {
+            display: block;
+            width: 100%;
+            background: #e50914;
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 1.3rem;
+            font-weight: 800;
+            padding: 18px;
+            border-radius: 10px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(229, 9, 20, 0.4);
+        }
+
+        .redeem-btn:hover {
+            background: #b8070f;
+            box-shadow: 0 5px 25px rgba(229, 9, 20, 0.6);
+            transform: translateY(-2px);
+        }
+
+        /* Terms & Disclaimer Panel */
+        .legal-panel {
+            margin-top: 30px;
+            background: #0b0c10;
+            padding: 25px;
+            border-radius: 12px;
+            border: 1px solid #222530;
+            text-align: left;
+            font-size: 0.85rem;
+            color: #727682;
+        }
+
+        .legal-panel h3 {
+            color: #e3e4e6;
+            font-size: 1rem;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .legal-panel ul {
+            list-style-type: none;
+        }
+
+        .legal-panel li {
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 15px;
+        }
+
+        .legal-panel li::before {
+            content: "•";
+            color: #e50914;
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        .legal-panel .restrictions li {
+            padding-left: 20px;
+        }
+        .legal-panel .restrictions li::before {
+            content: "❌";
+            font-size: 0.75rem;
+            position: absolute;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="page-wrapper">
+        <div class="container">
+            
+            <!-- N Brand Header -->
+            <div class="brand-header">
+                <div class="n-symbol">
+                    <!-- Accurate pure SVG icon representation for the N icon layout -->
+                    <svg viewBox="0 0 100 100">
+                        <path d="M 20,50 A 30,30 0 1,1 80,44 M 80,50 A 30,30 0 1,1 20,56" />
+                        <path d="M 26,62 L 26,38 L 52,62 L 52,38" />
+                    </svg>
+                </div>
+                <div class="brand-name">Ngen<span>u</span>ity</div>
+            </div>
+
+            
+            <!-- 1. EDIT YOUR IMAGE FILENAME HERE -->
+            <!-- Save your gift card image in the same directory and change the src attribute below if needed -->
+            <img class="gift-card-img" src="giftcard.png" alt="Ngenuity Gift Card Asset">
+
+            <!-- 2. CUSTOM TEXT MESSAGE DISPLAY PANEL -->
+            <div class="content-section">
+                <h2>🎉 Congratulations!</h2>
+                <p>You have been selected to receive a Gift card worth $29.00 USD as part of a promotional program held by Ngenuity  .</p>
+                
+            </div>
+
+            <!-- Meta Data Metrics Block -->
+            <div class="info-grid">
+                <div class="info-item">
+                    <span>Gift Card Value</span>
+                    <strong>$29.00 USD <small style="color:#727682;"></small></strong>
+                </div>
+                <div class="info-item">
+                    <span>Gift Card Status</span>
+                    <strong style="color: #22c55e;">Active </strong>
+                </div>
+                <div class="info-item">
+                    <span>Reward Type</span>
+                    <strong>Promotional Digital</strong>
+                </div>
+                <div class="info-item">
+                    <span>Expiration Date</span>
+                    <!-- Explicit custom expiry window applied -->
+                    <strong class="highlight">DECEMBER 31, 2026</strong>
+                </div>
+                <div class="info-item">
+                    <span>Currency</span>
+                    <strong>USD</strong>
+                </div>
+                <div class="info-item">
+                    <span>Delivery Method</span>
+                    <strong>Digital Setup</strong>
+                </div>
+            </div>
+
+            <!-- Fictional Partner Verification -->
+            <div class="content-section" style="border-top: 1px solid #222530; padding-top: 20px;">
+                <p style="font-size: 0.85rem; color:#727682; margin-bottom: 5px; text-transform: uppercase; letter-spacing: 0.5px;"> Redemption Availability</p>
+                <p style="font-size: 0.9rem;">this gift card is shown as redeemable exclusively through the following participating  merchants:</p>
+                <ul style="list-style: none; padding-left: 5px; font-size: 0.9rem; color: #ffffff; margin-top: 8px;">
+                    <li style="margin-bottom: 4px;">▪️ GenesisPC <span style="color:#727682;">(Active Partner)</span></li>
+                    <li>▪️ NMPC India <span style="color:#727682;">(Active Partner)</span></li>
+                </ul>
+            </div>
+
+            <!-- 3. EDIT CODE METRICS HERE -->
+            <div class="promo-code-container">
+                <span class="code-label">Redemption Voucher Code</span>
+                <div class="promo-code">GNS50OFF</div>
+            </div>
+
+            <!-- 4. REDEEM BUTTON (Directs to GenesisPC) -->
+            <a href="https://www.genesispc.in" target="_blank" class="redeem-btn">REDEEM NOW</a>
+
+            <!-- Legal Disclaimer Elements -->
+            <div class="legal-panel">
+                <h3>Terms & Conditions </h3>
+                <p style="margin-bottom: 12px; font-style: italic;">This document contains an exclusive Gift card worth $29.00 USD available for limited time use to only few lucky selected users of Ngenuity software.</p>
+                <ul>
+                    <li>The stated value of $29.00 USD can be claimed through the mentioned merchent partners only.</li>
+                    <li>The redemption code shown is for one time use only .</li>
+                    <li>No purchases can be made outside the specified merchants.</li>
+                    <li>The listed merchants (GenesisPC and NMPC India) are referenced partners as part of this program.</li>
+                </ul>
+                
+                <h3 style="margin-top: 15px;">Restrictions</h3>
+                <ul class="restrictions">
+                    <li>Not redeemable or exchangeable for cash.</li>
+                    <li>Cannot be transferred or reissued.</li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>
